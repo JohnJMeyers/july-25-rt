@@ -11,9 +11,9 @@ import Entrees from "./Entrees"
 class App extends Component {
 // Set initial state for appetizers, entrees, and desserts.
 // All should be set to empty arrays.
-constructor() {
+constructor(props) {
 
-  super()
+  super(props)
 
   this.state = {
     appetizers: [],
@@ -27,20 +27,16 @@ constructor() {
 componentDidMount() {
   fetch('http://tiny-lasagna-server.herokuapp.com/collections/reactthaimenu')
   .then(results => results.json())
-    .then(responseData => {
-      console.log(responseData)
+    .then(Data => {
       this.setState({
-        appetizers: responseData.appetizers,
-        entrees: responseData.entrees,
-        desserts: responseData.desserts
-
+        appetizers: Data[0].Appetizers,
+        entrees: Data[0].Entrees,
+        desserts: Data[0].Desserts
       });
+      console.log(this.state)
     })
 }
-// Fetch from http://tiny-lasagna-server.herokuapp.com/collections/reactthaimenu.
-// The response should return an object with appetizers, entres, and desserts.
-// Set these to state.
-// YOUR CODE HERE>
+
 
   render() {
     // Your render should consist of the BaseLayout with the following children components: Appetizers, Entrees, and Dessert.
@@ -48,9 +44,9 @@ componentDidMount() {
     return (
 
       <BaseLayout>
-        <Appetizers />
-        <Entrees />
-        <Desserts />
+        <Appetizers items={this.state.appetizers}/>
+        <Entrees items={this.state.entrees}/>
+        <Desserts items={this.state.desserts}/>
       </BaseLayout>
 
     )
