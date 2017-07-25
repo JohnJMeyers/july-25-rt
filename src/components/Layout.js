@@ -19,7 +19,7 @@ export default class BaseLayout extends Component {
       let titleStyle = {
         fontFamily: "Arizonia",
         fontSize: 150,
-        color: "red"
+        color: "white"
       }
 
       let subtitleStyle = {
@@ -46,7 +46,7 @@ export default class BaseLayout extends Component {
             </div>
           </div>
         </nav>
-            {this.props.children}
+          {this.props.children}
         <footer>
           <span className="footer-title">Majestic Thai </span><span>100 Main Street, Spartanburg, SC, 29302 | (864) 898-9999</span>
         </footer>

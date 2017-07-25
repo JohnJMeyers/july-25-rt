@@ -44,9 +44,12 @@ componentDidMount() {
     return (
 
       <BaseLayout>
-        <Appetizers items={this.state.appetizers}/>
-        <Entrees items={this.state.entrees}/>
-        <Desserts items={this.state.desserts}/>
+        <div className="menu">
+          <h2>Menu</h2>
+          <Appetizers items={this.state.appetizers}/>
+          <Entrees items={this.state.entrees}/>
+          <Desserts items={this.state.desserts}/>
+        </div>
       </BaseLayout>
 
     )
